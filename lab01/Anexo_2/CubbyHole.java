@@ -1,4 +1,4 @@
-package Anexo_2;
+package lab01.Anexo_2;
 
 public class CubbyHole {
     private int contents;

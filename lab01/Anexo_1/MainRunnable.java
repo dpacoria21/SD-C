@@ -1,4 +1,4 @@
-package Anexo_1;
+package lab01.Anexo_1;
 
 public class MainRunnable implements Runnable {
     private Cliente cliente;
