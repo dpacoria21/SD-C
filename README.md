@@ -2,8 +2,8 @@
 
 ### Integrantes:
  - Henry Isaias Galvez Quilla - 20201828 - hgalvezq@unsa.edu.pe
- - Franco Luchiano Cardenas Martinez - 
- - Diego Ivan Pacori Anccasi - 
+ - Franco Luchiano Cardenas Martinez - fcardenasm@unsa.edu.pe
+ - Diego Ivan Pacori Anccasi - dpacoria@unsa.edu.pe
 
 ### Metodología de trabajo:
  1. Cada integrante debera crear su propia rama con el nombre de su correo:  
