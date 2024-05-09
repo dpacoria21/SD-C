@@ -8,12 +8,12 @@
 ### Metodología de trabajo:
  1. Cada integrante debera crear su propia rama con el nombre de su correo:  
 
-    * `git branch -b dpacoria `
+    * `git checkout -b dpacoria `
 
  2. El trabajo sera divido cada uno en sus respectivas tareas de manera que al hacer merge evitemos en su mayoría los conflictos  
 
     * `git branch ` -> para poder ver las otras ramas  
-    * `git branch -b <name>` -> para crear e ir de inmediato a esa nueva rama  
+    * `git checkout -b <name>` -> para crear e ir de inmediato a esa nueva rama  
     * `git checkout <name> ` -> para poder ir a otras ramas  
 
  3. Para una mejor visualizacion del ` git log ` utilizar el siguiente alias  
