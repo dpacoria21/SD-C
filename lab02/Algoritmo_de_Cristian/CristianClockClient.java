@@ -2,10 +2,14 @@ package lab02.Algoritmo_de_Cristian;
 
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
+import java.net.*;
 import javax.swing.*;
 
 public class CristianClockClient extends JFrame implements Runnable {
+    private static final int SERVER_PORT = 8000;
     private JTextArea logArea;
+    private int serverTime;
     private boolean isRunning;
 
     public CristianClockClient() {
@@ -37,7 +41,22 @@ public class CristianClockClient extends JFrame implements Runnable {
 
     @Override
     public void run() {
-        // Implementación de la sincronización
+        while (isRunning) {
+            try {
+                Socket socket = new Socket("localhost", SERVER_PORT);
+                InputStream inputStream = socket.getInputStream();
+                BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
+                String serverTimeStr = reader.readLine();
+                serverTime = (int) (Long.parseLong(serverTimeStr) / 1000);
+                socket.close();
+
+                // Actualizar la hora local (implementación pendiente)
+
+                // Mostrar información (implementación pendiente)
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public static void main(String[] args) {
