@@ -9,6 +9,7 @@ import javax.swing.*;
 public class CristianClockClient extends JFrame implements Runnable {
     private static final int SERVER_PORT = 8000;
     private JTextArea logArea;
+    private int localTime;
     private int serverTime;
     private boolean isRunning;
 
@@ -36,7 +37,9 @@ public class CristianClockClient extends JFrame implements Runnable {
         });
         add(startButton, BorderLayout.SOUTH);
 
+        localTime = 0;
         isRunning = false;
+
     }
 
     @Override
@@ -50,7 +53,8 @@ public class CristianClockClient extends JFrame implements Runnable {
                 serverTime = (int) (Long.parseLong(serverTimeStr) / 1000);
                 socket.close();
 
-                // Actualizar la hora local (implementación pendiente)
+                int transmissionTime = localTime;
+                localTime = Math.max(localTime, serverTime) + 1;
 
                 // Mostrar información (implementación pendiente)
             } catch (IOException e) {
