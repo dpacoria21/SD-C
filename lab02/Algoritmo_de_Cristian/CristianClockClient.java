@@ -38,8 +38,8 @@ public class CristianClockClient extends JFrame implements Runnable {
         add(startButton, BorderLayout.SOUTH);
 
         localTime = 0;
+        serverTime = 0;
         isRunning = false;
-
     }
 
     @Override
@@ -60,7 +60,9 @@ public class CristianClockClient extends JFrame implements Runnable {
                 logArea.append("Hora del servidor: " + serverTime + "\n");
                 logArea.append("Tiempo de transmisión: " + transmissionTime + "\n");
                 logArea.append("---------------------------------------\n");
-            } catch (IOException e) {
+
+                Thread.sleep(5000); // Esperar 5 segundos antes de la siguiente sincronización
+            } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
             }
         }
