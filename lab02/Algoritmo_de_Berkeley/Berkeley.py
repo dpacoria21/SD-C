@@ -34,9 +34,9 @@ def calcularHoras(diferencias, *horas):
 def formatoHora(hora):
     return "{:02d}:{:02d}:{:02d}:{:03d}".format(hora[3], hora[4], hora[5], hora[6]*10)
 
-def obtenerHoraCliente():
+
+def obtenerHoraCliente(horas = [getHoraServer(), getHoraCliente1(), getHoraCliente2()]):
     nombres = ["Servidor", "Cliente 1", "Cliente 2"]
-    horas = [getHoraServer(), getHoraCliente1(), getHoraCliente2()]
     diferencias = [calcularDiferencias(hora, horas[0]) for hora in horas]
     nuevasHoras = calcularHoras(diferencias, *horas)
     for i in range(len(horas)):
@@ -46,7 +46,7 @@ def obtenerHoraCliente():
         text.insert(END, nombres[i] + " (después): " + formatoHora(nuevasHoras[i]) + "\n")
     text.insert(END, "========================\n")
     text.see(END)
-    root.after(5000, obtenerHoraCliente)  
+    root.after(5000, obtenerHoraCliente, nuevasHoras)  
 
 root = Tk()
 root.geometry("300x450")
