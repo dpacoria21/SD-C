@@ -29,3 +29,7 @@ def calcularHoras(diferencias, *horas):
         segundos = int(horas[i][0])*3600 + int(horas[i][1])*60 + int(horas[i][2]) + nuevasDiferencias[i]
         nuevasHoras.append(list(time.gmtime(segundos))[3:6])
     return nuevasHoras
+
+def formatoHora(hora):
+    return "{:02d}:{:02d}:{:02d}".format(hora[0], hora[1], hora[2])
+
