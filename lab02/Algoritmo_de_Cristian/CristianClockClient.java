@@ -56,7 +56,10 @@ public class CristianClockClient extends JFrame implements Runnable {
                 int transmissionTime = localTime;
                 localTime = Math.max(localTime, serverTime) + 1;
 
-                // Mostrar información (implementación pendiente)
+                logArea.append("Hora local: " + localTime + "\n");
+                logArea.append("Hora del servidor: " + serverTime + "\n");
+                logArea.append("Tiempo de transmisión: " + transmissionTime + "\n");
+                logArea.append("---------------------------------------\n");
             } catch (IOException e) {
                 e.printStackTrace();
             }
