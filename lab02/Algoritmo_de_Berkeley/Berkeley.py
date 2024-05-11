@@ -33,3 +33,16 @@ def calcularHoras(diferencias, *horas):
 def formatoHora(hora):
     return "{:02d}:{:02d}:{:02d}".format(hora[0], hora[1], hora[2])
 
+def obtenerHoraCliente():
+    nombres = ["Servidor", "Cliente 1", "Cliente 2"]
+    horas = [getHoraServer(), getHoraCliente1(), getHoraCliente2()]
+    diferencias = [calcularDiferencias(hora, horas[0]) for hora in horas]
+    nuevasHoras = calcularHoras(diferencias, *horas)
+    print("Horas originales:")
+    for i in range(len(horas)):
+        print(nombres[i] + ": " + formatoHora(horas[i]))
+    print("Nuevas horas:")
+    for i in range(len(nuevasHoras)):
+        print(nombres[i] + ": " + formatoHora(nuevasHoras[i]))
+
+obtenerHoraCliente()
