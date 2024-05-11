@@ -15,3 +15,8 @@ def getHoraCliente2():
 def getHoraServer():
     horaUTC = time.localtime()
     return list(horaUTC)[3:6]
+
+def calcularDiferencias(horaCliente, horaServer):
+    segundosCliente = int(horaCliente[0])*3600 + int(horaCliente[1])*60 + int(horaCliente[2])
+    segundosServer = int(horaServer[0])*3600 + int(horaServer[1])*60 + int(horaServer[2])
+    return segundosCliente - segundosServer
