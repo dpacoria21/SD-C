@@ -9,28 +9,24 @@ public class Tarjeta {
     private String fechaVencimiento;
     private String cvv;
     private String nombreTitular;
-    private String dniTitular;
     private BigDecimal saldo;
 
     public Tarjeta(String numero, TipoTarjeta tipo, String fechaVencimiento, String cvv, String nombreTitular,
-            String dniTitular, BigDecimal saldo) {
+            BigDecimal saldo) {
         this.numero = numero;
         this.tipo = tipo;
         this.fechaVencimiento = fechaVencimiento;
         this.cvv = cvv;
         this.nombreTitular = nombreTitular;
-        this.dniTitular = dniTitular;
         this.saldo = saldo;
     }
 
-    public Tarjeta(String numero, TipoTarjeta tipo, String fechaVencimiento, String cvv, String nombreTitular,
-            String dniTitular) {
+    public Tarjeta(String numero, TipoTarjeta tipo, String fechaVencimiento, String cvv, String nombreTitular) {
         this.numero = numero;
         this.tipo = tipo;
         this.fechaVencimiento = fechaVencimiento;
         this.cvv = cvv;
         this.nombreTitular = nombreTitular;
-        this.dniTitular = dniTitular;
         this.saldo = new BigDecimal(0);
     }
 
@@ -72,14 +68,6 @@ public class Tarjeta {
 
     public void setNombreTitular(String nombreTitular) {
         this.nombreTitular = nombreTitular;
-    }
-
-    public String getDniTitular() {
-        return dniTitular;
-    }
-
-    public void setDniTitular(String dniTitular) {
-        this.dniTitular = dniTitular;
     }
 
     public BigDecimal getSaldo() {
