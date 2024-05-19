@@ -11,12 +11,23 @@ public class SistemaTarjetasImpl extends UnicastRemoteObject implements SistemaT
 
     protected SistemaTarjetasImpl() throws RemoteException {
         super();
+        Persona persona1 = new Persona("Juan", "Perez", "12345678");
+        Persona persona2 = new Persona("Maria", "Gomez", "87654321");
+
+        Tarjeta tarjeta1 = new Tarjeta(1, TipoTarjeta.CREDITO, "12/2023", "123", "Juan Perez", new BigDecimal("1000"));
+        Tarjeta tarjeta2 = new Tarjeta(2, TipoTarjeta.DEBITO, "06/2024", "456", "Maria Gomez",
+                new BigDecimal("2000"));
+
+        persona1.addTarjeta(tarjeta1);
+        persona2.addTarjeta(tarjeta2);
+
+        personas.put(persona1.getDni(), persona1);
+        personas.put(persona2.getDni(), persona2);
     }
 
     @Override
     public BigDecimal getSaldo(String dni, int numeroTarjeta) throws RemoteException {
         return personas.get(dni).getTarjeta(numeroTarjeta).getSaldo();
-
     }
 
     @Override
