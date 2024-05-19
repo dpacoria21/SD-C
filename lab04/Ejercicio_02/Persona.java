@@ -1,12 +1,13 @@
 package lab04.Ejercicio_02;
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Persona {
     private String nombre;
     private String apellido;
     private String dni;
-    private ArrayList<Tarjeta> tarjetas;
+    private HashMap<Integer, Tarjeta> tarjetas;
+    private int cantidadTarjetas = 0;
 
     public String getNombre() {
         return nombre;
@@ -36,11 +37,17 @@ public class Persona {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
-        this.tarjetas = new ArrayList<Tarjeta>();
+        this.tarjetas = new HashMap<>();
     }
 
     public void addTarjeta(Tarjeta tarjeta) {
-        this.tarjetas.add(tarjeta);
+        cantidadTarjetas++;
+        tarjeta.setNumero(cantidadTarjetas);
+        this.tarjetas.put(cantidadTarjetas, tarjeta);
+    }
+
+    public Tarjeta getTarjeta(int numero) {
+        return tarjetas.get(numero);
     }
 
 }

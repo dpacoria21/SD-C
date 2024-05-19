@@ -5,10 +5,10 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 public interface SistemaTarjetas extends Remote {
-    public int getSaldo(String dni) throws RemoteException;
+    public BigDecimal getSaldo(String dni, int numeroTarjeta) throws RemoteException;
 
-    public int addSaldo(String dni, BigDecimal saldo) throws RemoteException;
+    public BigDecimal addSaldo(String dni, int numeroTarjeta, BigDecimal saldo) throws RemoteException;
 
-    public int subSaldo(String dni, BigDecimal saldo) throws RemoteException;
+    public BigDecimal subSaldo(String dni, int numeroTarjeta, BigDecimal saldo) throws RemoteException;
 
 }

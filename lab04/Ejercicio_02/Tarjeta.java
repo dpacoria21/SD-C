@@ -4,14 +4,14 @@ import java.math.BigDecimal;
 
 public class Tarjeta {
 
-    private String numero;
+    private int numero;
     private TipoTarjeta tipo;
     private String fechaVencimiento;
     private String cvv;
     private String nombreTitular;
     private BigDecimal saldo;
 
-    public Tarjeta(String numero, TipoTarjeta tipo, String fechaVencimiento, String cvv, String nombreTitular,
+    public Tarjeta(int numero, TipoTarjeta tipo, String fechaVencimiento, String cvv, String nombreTitular,
             BigDecimal saldo) {
         this.numero = numero;
         this.tipo = tipo;
@@ -21,7 +21,7 @@ public class Tarjeta {
         this.saldo = saldo;
     }
 
-    public Tarjeta(String numero, TipoTarjeta tipo, String fechaVencimiento, String cvv, String nombreTitular) {
+    public Tarjeta(int numero, TipoTarjeta tipo, String fechaVencimiento, String cvv, String nombreTitular) {
         this.numero = numero;
         this.tipo = tipo;
         this.fechaVencimiento = fechaVencimiento;
@@ -30,11 +30,11 @@ public class Tarjeta {
         this.saldo = new BigDecimal(0);
     }
 
-    public String getNumero() {
+    public int getNumero() {
         return numero;
     }
 
-    public void setNumero(String numero) {
+    public void setNumero(int numero) {
         this.numero = numero;
     }
 
