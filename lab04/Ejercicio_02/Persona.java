@@ -50,4 +50,8 @@ public class Persona {
         return tarjetas.get(numero);
     }
 
+    public HashMap<Integer, Tarjeta> getTarjetas() {
+        return tarjetas;
+    }
+
 }

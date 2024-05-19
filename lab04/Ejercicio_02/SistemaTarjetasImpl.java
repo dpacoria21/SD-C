@@ -27,11 +27,13 @@ public class SistemaTarjetasImpl extends UnicastRemoteObject implements SistemaT
 
     @Override
     public BigDecimal getSaldo(String dni, int numeroTarjeta) throws RemoteException {
+        checkConsult(dni, numeroTarjeta);
         return personas.get(dni).getTarjeta(numeroTarjeta).getSaldo();
     }
 
     @Override
     public BigDecimal addSaldo(String dni, int numeroTarjeta, BigDecimal saldo) throws RemoteException {
+        checkConsult(dni, numeroTarjeta);
         BigDecimal saldoActual = personas.get(dni).getTarjeta(numeroTarjeta).getSaldo();
         BigDecimal nuevoSaldo = saldoActual.add(saldo);
         personas.get(dni).getTarjeta(numeroTarjeta).setSaldo(nuevoSaldo);
@@ -40,6 +42,7 @@ public class SistemaTarjetasImpl extends UnicastRemoteObject implements SistemaT
 
     @Override
     public BigDecimal subSaldo(String dni, int numeroTarjeta, BigDecimal saldo) throws RemoteException {
+        checkConsult(dni, numeroTarjeta);
         BigDecimal saldoActual = personas.get(dni).getTarjeta(numeroTarjeta).getSaldo();
         BigDecimal nuevoSaldo = saldoActual.subtract(saldo);
         if (nuevoSaldo.compareTo(BigDecimal.ZERO) < 0) {
@@ -48,4 +51,14 @@ public class SistemaTarjetasImpl extends UnicastRemoteObject implements SistemaT
         personas.get(dni).getTarjeta(numeroTarjeta).setSaldo(nuevoSaldo);
         return nuevoSaldo;
     }
+
+    private void checkConsult(String dni, int numeroTarjeta) throws RemoteException {
+        if (!personas.containsKey(dni)) {
+            throw new RemoteException("Persona no encontrada");
+        }
+        if (!personas.get(dni).getTarjetas().containsKey(numeroTarjeta)) {
+            throw new RemoteException("Tarjeta no encontrada");
+        }
+    }
+
 }
