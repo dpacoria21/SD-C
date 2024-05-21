@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 public class SistemaTarjetasImpl extends UnicastRemoteObject implements SistemaTarjetas {
 
-    HashMap<String, Persona> personas = new HashMap<String, Persona>();
+    HashMap<String, Persona> personas = new HashMap<>();
 
     protected SistemaTarjetasImpl() throws RemoteException {
         super();
@@ -15,8 +15,7 @@ public class SistemaTarjetasImpl extends UnicastRemoteObject implements SistemaT
         Persona persona2 = new Persona("Maria", "Gomez", "87654321");
 
         Tarjeta tarjeta1 = new Tarjeta(1, TipoTarjeta.CREDITO, "12/2023", "123", "Juan Perez", new BigDecimal("1000"));
-        Tarjeta tarjeta2 = new Tarjeta(2, TipoTarjeta.DEBITO, "06/2024", "456", "Maria Gomez",
-                new BigDecimal("2000"));
+        Tarjeta tarjeta2 = new Tarjeta(2, TipoTarjeta.DEBITO, "06/2024", "456", "Maria Gomez", new BigDecimal("2000"));
 
         persona1.addTarjeta(tarjeta1);
         persona2.addTarjeta(tarjeta2);
@@ -54,11 +53,10 @@ public class SistemaTarjetasImpl extends UnicastRemoteObject implements SistemaT
 
     private void checkConsult(String dni, int numeroTarjeta) throws RemoteException {
         if (!personas.containsKey(dni)) {
-            throw new RemoteException("Persona no encontrada");
+            throw new RemoteException("Persona no encontrada con DNI: " + dni);
         }
         if (!personas.get(dni).getTarjetas().containsKey(numeroTarjeta)) {
-            throw new RemoteException("Tarjeta no encontrada");
+            throw new RemoteException("Tarjeta no encontrada con número: " + numeroTarjeta);
         }
     }
-
 }
