@@ -11,17 +11,7 @@ public class SistemaTarjetasImpl extends UnicastRemoteObject implements SistemaT
 
     protected SistemaTarjetasImpl() throws RemoteException {
         super();
-        Persona persona1 = new Persona("Juan", "Perez", "12345678");
-        Persona persona2 = new Persona("Maria", "Gomez", "87654321");
-
-        Tarjeta tarjeta1 = new Tarjeta(1, TipoTarjeta.CREDITO, "12/2023", "123", "Juan Perez", new BigDecimal("1000"));
-        Tarjeta tarjeta2 = new Tarjeta(2, TipoTarjeta.DEBITO, "06/2024", "456", "Maria Gomez", new BigDecimal("2000"));
-
-        persona1.addTarjeta(tarjeta1);
-        persona2.addTarjeta(tarjeta2);
-
-        personas.put(persona1.getDni(), persona1);
-        personas.put(persona2.getDni(), persona2);
+        // Inicialización de personas con datos predefinidos (opcional)
     }
 
     @Override
@@ -49,6 +39,27 @@ public class SistemaTarjetasImpl extends UnicastRemoteObject implements SistemaT
         }
         personas.get(dni).getTarjeta(numeroTarjeta).setSaldo(nuevoSaldo);
         return nuevoSaldo;
+    }
+
+    @Override
+    public void agregarCliente(String nombre, String apellido, String dni) throws RemoteException {
+        if (personas.containsKey(dni)) {
+            throw new RemoteException("Cliente con DNI " + dni + " ya existe.");
+        }
+        Persona nuevaPersona = new Persona(nombre, apellido, dni);
+        personas.put(dni, nuevaPersona);
+    }
+
+    @Override
+    public void agregarTarjeta(String dni, TipoTarjeta tipo, String fechaVencimiento, String cvv, String nombreTitular,
+            BigDecimal saldoInicial) throws RemoteException {
+        if (!personas.containsKey(dni)) {
+            throw new RemoteException("No se encontró persona con DNI " + dni);
+        }
+        Persona persona = personas.get(dni);
+        Tarjeta nuevaTarjeta = new Tarjeta(persona.getTarjetas().size() + 1, tipo, fechaVencimiento, cvv, nombreTitular,
+                saldoInicial);
+        persona.addTarjeta(nuevaTarjeta);
     }
 
     private void checkConsult(String dni, int numeroTarjeta) throws RemoteException {
