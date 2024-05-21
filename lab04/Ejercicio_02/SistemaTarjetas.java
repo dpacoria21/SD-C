@@ -11,4 +11,8 @@ public interface SistemaTarjetas extends Remote {
 
     public BigDecimal subSaldo(String dni, int numeroTarjeta, BigDecimal saldo) throws RemoteException;
 
+    public void agregarCliente(String nombre, String apellido, String dni) throws RemoteException;
+
+    public void agregarTarjeta(String dni, TipoTarjeta tipo, String fechaVencimiento, String cvv, String nombreTitular,
+            BigDecimal saldoInicial) throws RemoteException;
 }

@@ -7,16 +7,16 @@ import java.util.HashMap;
 
 public class SistemaTarjetasImpl extends UnicastRemoteObject implements SistemaTarjetas {
 
-    HashMap<String, Persona> personas = new HashMap<String, Persona>();
+    HashMap<String, Persona> personas = new HashMap<>();
 
     protected SistemaTarjetasImpl() throws RemoteException {
         super();
+        // Inicialización de personas con datos predefinidos (opcional)
         Persona persona1 = new Persona("Juan", "Perez", "12345678");
         Persona persona2 = new Persona("Maria", "Gomez", "87654321");
 
         Tarjeta tarjeta1 = new Tarjeta(1, TipoTarjeta.CREDITO, "12/2023", "123", "Juan Perez", new BigDecimal("1000"));
-        Tarjeta tarjeta2 = new Tarjeta(2, TipoTarjeta.DEBITO, "06/2024", "456", "Maria Gomez",
-                new BigDecimal("2000"));
+        Tarjeta tarjeta2 = new Tarjeta(2, TipoTarjeta.DEBITO, "06/2024", "456", "Maria Gomez", new BigDecimal("2000"));
 
         persona1.addTarjeta(tarjeta1);
         persona2.addTarjeta(tarjeta2);
@@ -52,13 +52,33 @@ public class SistemaTarjetasImpl extends UnicastRemoteObject implements SistemaT
         return nuevoSaldo;
     }
 
-    private void checkConsult(String dni, int numeroTarjeta) throws RemoteException {
-        if (!personas.containsKey(dni)) {
-            throw new RemoteException("Persona no encontrada");
+    @Override
+    public void agregarCliente(String nombre, String apellido, String dni) throws RemoteException {
+        if (personas.containsKey(dni)) {
+            throw new RemoteException("Cliente con DNI " + dni + " ya existe.");
         }
-        if (!personas.get(dni).getTarjetas().containsKey(numeroTarjeta)) {
-            throw new RemoteException("Tarjeta no encontrada");
-        }
+        Persona nuevaPersona = new Persona(nombre, apellido, dni);
+        personas.put(dni, nuevaPersona);
     }
 
+    @Override
+    public void agregarTarjeta(String dni, TipoTarjeta tipo, String fechaVencimiento, String cvv, String nombreTitular,
+            BigDecimal saldoInicial) throws RemoteException {
+        if (!personas.containsKey(dni)) {
+            throw new RemoteException("No se encontró persona con DNI " + dni);
+        }
+        Persona persona = personas.get(dni);
+        Tarjeta nuevaTarjeta = new Tarjeta(persona.getTarjetas().size() + 1, tipo, fechaVencimiento, cvv, nombreTitular,
+                saldoInicial);
+        persona.addTarjeta(nuevaTarjeta);
+    }
+
+    private void checkConsult(String dni, int numeroTarjeta) throws RemoteException {
+        if (!personas.containsKey(dni)) {
+            throw new RemoteException("Persona no encontrada con DNI: " + dni);
+        }
+        if (!personas.get(dni).getTarjetas().containsKey(numeroTarjeta)) {
+            throw new RemoteException("Tarjeta no encontrada con número: " + numeroTarjeta);
+        }
+    }
 }
