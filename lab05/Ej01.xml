@@ -2,14 +2,22 @@
 <!DOCTYPE BOE [
     <!-- Aquí comienza el DTD -->
     <!ELEMENT BOE (TITULO, FECHA, SUMARIO)>
-    <!ELEMENT libro (portada, cuerpo, contraportada)>
-    <!ELEMENT portada (titulo, edicion, autor, editor)>
-    <!ELEMENT titulo (#PCDATA)>
-    <!ELEMENT edicion (#PCDATA)>
-    <!ELEMENT autor (nombre, apellidos, email?)>
-    <!ELEMENT nombre (#PCDATA)>
-    <!ELEMENT apellidos (#PCDATA)>
-    <!ELEMENT email (#PCDATA)>
+    <!ELEMENT TITULO (#PCDATA)>
+    <!ELEMENT FECHA (AAAA, MM, DD)>
+    <!ELEMENT AAAA (#PCDATA)>
+    <!ELEMENT MM (#PCDATA)>
+    <!ELEMENT DD (#PCDATA)>
+    <!ELEMENT SUMARIO (SECCION+)>
+    <!ELEMENT SECCION (TIT-SECCION, APARTADO+)>
+    <!ELEMENT TIT-SECCION (#PCDATA)>
+    <!ELEMENT APARTADO (ORGANISMO, PARRAFO+)>
+    <!ELEMENT ORGANISMO (#PCDATA)>
+    <!ELEMENT PARRAFO (TEXTO, PAGINA+)>
+    <!ELEMENT TEXTO (LEY*,ORDEN*,RD*)>
+    <!ELEMENT PAGINA (#PCDATA)>
+    <!ELEMENT ORDEN (#PCDATA)>
+    <!ELEMENT LEY (#PCDATA)>
+    <!ELEMENT RD (#PCDATA)>
     <!-- Aquí termina el DTD -->
 ]>
 <BOE>
@@ -52,9 +60,7 @@
             <APARTADO>
                 <ORGANISMO>MINISTERIO DE FOMENTO</ORGANISMO>
                 <PARRAFO>
-                    <TEXTO>
-                        CORRECCIÓN de erratas de la Orden ...
-                    </TEXTO>
+                    <TEXTO> CORRECCIÓN de erratas de la Orden ... </TEXTO>
                     <PAGINA>11291</PAGINA>
                     <PAGINA>11292</PAGINA>
                     <PAGINA>11293</PAGINA>
