@@ -13,11 +13,13 @@
     <!ELEMENT APARTADO (ORGANISMO, PARRAFO+)>
     <!ELEMENT ORGANISMO (#PCDATA)>
     <!ELEMENT PARRAFO (TEXTO, PAGINA+)>
-    <!ELEMENT TEXTO (LEY*,ORDEN*,RD*)>
+    <!ELEMENT TEXTO (LEY*,ORDEN*,RD*, RES*, CORRECCION*)>
     <!ELEMENT PAGINA (#PCDATA)>
     <!ELEMENT ORDEN (#PCDATA)>
     <!ELEMENT LEY (#PCDATA)>
     <!ELEMENT RD (#PCDATA)>
+    <!ELEMENT RES (#PCDATA)>
+    <!ELEMENT CORRECCION (#PCDATA)>
     <!-- Aquí termina el DTD -->
 ]>
 <BOE>
@@ -42,7 +44,8 @@
                 </PARRAFO>
                 <PARRAFO>
                     <TEXTO>
-                        <ORDEN>ORDEN de 28 de febrero de 2001</ORDEN> por la ... </TEXTO>
+                        <ORDEN>ORDEN de 28 de febrero de 2001 por la ... </ORDEN>
+                    </TEXTO>
                     <PAGINA>11290</PAGINA>
                     <PAGINA>11291</PAGINA>
                 </PARRAFO>
@@ -51,7 +54,8 @@
                 <ORGANISMO>MINISTERIO DE HACIENDA</ORGANISMO>
                 <PARRAFO>
                     <TEXTO>
-                        <RD>REAL DECRETO 285/2001</RD>, de 19 de marzo, sobre ... </TEXTO>
+                        <RD>REAL DECRETO 285/2001, de 19 de marzo, sobre ... </RD>
+                    </TEXTO>
                     <PAGINA>11291</PAGINA>
                     <PAGINA>11292</PAGINA>
                     <PAGINA>11293</PAGINA>
@@ -61,7 +65,9 @@
             <APARTADO>
                 <ORGANISMO>MINISTERIO DE FOMENTO</ORGANISMO>
                 <PARRAFO>
-                    <TEXTO> CORRECCIÓN de erratas de la Orden ... </TEXTO>
+                    <TEXTO>
+                        <CORRECCION>CORRECCIÓN de erratas de la Orden ...</CORRECCION>
+                    </TEXTO>
                     <PAGINA>11291</PAGINA>
                     <PAGINA>11292</PAGINA>
                     <PAGINA>11293</PAGINA>
@@ -75,7 +81,8 @@
                 <ORGANISMO>CORTES GENERALES</ORGANISMO>
                 <PARRAFO>
                     <TEXTO>
-                        <RES>RESOLUCIÓN de 19 de marzo de 2001</RES>, de la ... </TEXTO>
+                        <RES>RESOLUCIÓN de 19 de marzo de 2001, de la ... </RES>
+                    </TEXTO>
                     <PAGINA>11294</PAGINA>
                     <PAGINA>11295</PAGINA>
                 </PARRAFO>
@@ -84,7 +91,8 @@
                 <ORGANISMO>MINISTERIO DE ASUNTOS EXTERIORES</ORGANISMO>
                 <PARRAFO>
                     <TEXTO>
-                        <RD>REAL DECRETO 314/2001</RD>, de 24 de marzo, por el ... </TEXTO>
+                        <RD>REAL DECRETO 314/2001, de 24 de marzo, por el ... </RD>
+                    </TEXTO>
                     <PAGINA>11291</PAGINA>
                     <PAGINA>11292</PAGINA>
                     <PAGINA>11293</PAGINA>
