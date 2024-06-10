@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="http://localhost:8080/Ventas/PersonaController?WSDL" uri="xml-resources/web-service-references/PersonaController/wsdl/localhost_8080/Ventas/PersonaController.wsdl"/>
+    <system systemId="http://localhost:8080/Ventas/PersonaController?xsd=1" uri="xml-resources/web-service-references/PersonaController/wsdl/localhost_8080/Ventas/PersonaController.xsd_1.xsd"/>
+    <system systemId="http://localhost:8080/Ventas/ProductoController?WSDL" uri="xml-resources/web-service-references/ProductoController/wsdl/localhost_8080/Ventas/ProductoController.wsdl"/>
+    <system systemId="http://localhost:8080/Ventas/ProductoController?xsd=1" uri="xml-resources/web-service-references/ProductoController/wsdl/localhost_8080/Ventas/ProductoController.xsd_1.xsd"/>
+</catalog>

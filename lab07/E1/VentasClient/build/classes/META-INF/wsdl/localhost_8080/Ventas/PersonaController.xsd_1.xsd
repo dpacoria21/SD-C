@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (https://github.com/eclipse-ee4j/metro-jax-ws). RI's version is Eclipse Metro/2.4.8 (RELEASE-2.4.8-e044505; 2022-01-04T13:29:23+0000) JAXWS-RI/2.3.5 JAXWS-API/2.3.3 JAXB-RI/2.3.5 JAXB-API/2.3.3 git-revision#e044505. --><xs:schema xmlns:tns="http://controller/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://controller/">
+
+<xs:element name="addPersona" type="tns:addPersona"/>
+
+<xs:element name="addPersonaResponse" type="tns:addPersonaResponse"/>
+
+<xs:element name="getPersona" type="tns:getPersona"/>
+
+<xs:element name="getPersonaResponse" type="tns:getPersonaResponse"/>
+
+<xs:element name="getPersonas" type="tns:getPersonas"/>
+
+<xs:element name="getPersonasResponse" type="tns:getPersonasResponse"/>
+
+<xs:element name="getSaldo" type="tns:getSaldo"/>
+
+<xs:element name="getSaldoResponse" type="tns:getSaldoResponse"/>
+
+<xs:element name="updateSaldo" type="tns:updateSaldo"/>
+
+<xs:element name="updateSaldoResponse" type="tns:updateSaldoResponse"/>
+
+<xs:complexType name="getSaldo">
+<xs:sequence>
+<xs:element name="code" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getSaldoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPersonas">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getPersonasResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPersona">
+<xs:sequence>
+<xs:element name="code" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPersonaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addPersona">
+<xs:sequence>
+<xs:element name="nombre" type="xs:string" minOccurs="0"/>
+<xs:element name="apellido" type="xs:string" minOccurs="0"/>
+<xs:element name="saldo" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addPersonaResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateSaldo">
+<xs:sequence>
+<xs:element name="code" type="xs:int"/>
+<xs:element name="nuevoSaldo" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="updateSaldoResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>

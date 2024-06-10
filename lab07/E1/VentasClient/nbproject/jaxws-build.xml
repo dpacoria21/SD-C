@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+        *** GENERATED FROM jax-ws.xml - DO NOT EDIT !                             ***
+        *** TO MODIFY wsimport options USE Web Service node -> Edit WS Attributes ***
+        *** TO CHANGE TARGETS GENERATED TO jaxws-build.xml COPY THOSE             ***
+        *** TARGETS TO ../build.xml AND MODIFY THAT FILE INSTEAD                  ***
+
+        --><project xmlns:xalan="http://xml.apache.org/xslt" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+    <!--
+                ===================
+                JAX-WS WSIMPORT SECTION
+                ===================
+            -->
+    <target name="wsimport-init" depends="init">
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${libs.jaxws21.classpath}"/>
+        </taskdef>
+    </target>
+    <target name="wsimport-client-ProductoController" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/ProductoController"/>
+        <property name="wsdl-ProductoController" location="xml-resources/web-service-references/ProductoController/wsdl/localhost_8080/Ventas/ProductoController.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/ProductoController" destdir="${build.generated.dir}/jax-wsCache/ProductoController" wsdl="${wsdl-ProductoController}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/Ventas/ProductoController?WSDL" xnocompile="true" xendorsed="true" package="ws">
+            <depends file="${wsdl-ProductoController}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/ProductoController"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/ProductoController">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-ProductoController" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/ProductoController"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/ws"/>
+    </target>
+    <target name="wsimport-client-PersonaController" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/PersonaController"/>
+        <property name="wsdl-PersonaController" location="xml-resources/web-service-references/PersonaController/wsdl/localhost_8080/Ventas/PersonaController.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/PersonaController" destdir="${build.generated.dir}/jax-wsCache/PersonaController" wsdl="${wsdl-PersonaController}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8080/Ventas/PersonaController?WSDL" xnocompile="true" xendorsed="true" package="ws.usuario">
+            <depends file="${wsdl-PersonaController}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/PersonaController"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/PersonaController">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-PersonaController" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/PersonaController"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/ws/usuario"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-ProductoController, wsimport-client-PersonaController"/>
+</project>

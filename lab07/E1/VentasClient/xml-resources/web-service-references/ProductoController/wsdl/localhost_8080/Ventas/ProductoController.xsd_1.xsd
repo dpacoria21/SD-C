@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (https://github.com/eclipse-ee4j/metro-jax-ws). RI's version is Eclipse Metro/2.4.8 (RELEASE-2.4.8-e044505; 2022-01-04T13:29:23+0000) JAXWS-RI/2.3.5 JAXWS-API/2.3.3 JAXB-RI/2.3.5 JAXB-API/2.3.3 git-revision#e044505. --><xs:schema xmlns:tns="http://controller/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://controller/">
+
+<xs:element name="addProduct" type="tns:addProduct"/>
+
+<xs:element name="addProductResponse" type="tns:addProductResponse"/>
+
+<xs:element name="getPrecio" type="tns:getPrecio"/>
+
+<xs:element name="getPrecioResponse" type="tns:getPrecioResponse"/>
+
+<xs:element name="getProduct" type="tns:getProduct"/>
+
+<xs:element name="getProductResponse" type="tns:getProductResponse"/>
+
+<xs:element name="getProducts" type="tns:getProducts"/>
+
+<xs:element name="getProductsResponse" type="tns:getProductsResponse"/>
+
+<xs:element name="sellProduct" type="tns:sellProduct"/>
+
+<xs:element name="sellProductResponse" type="tns:sellProductResponse"/>
+
+<xs:complexType name="getProducts">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="getProductsResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getProduct">
+<xs:sequence>
+<xs:element name="code" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getProductResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addProduct">
+<xs:sequence>
+<xs:element name="name" type="xs:string" minOccurs="0"/>
+<xs:element name="cantidad" type="xs:int"/>
+<xs:element name="precio" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="addProductResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sellProduct">
+<xs:sequence>
+<xs:element name="code" type="xs:int"/>
+<xs:element name="cantidad" type="xs:int"/>
+<xs:element name="saldoUsuario" type="xs:double"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="sellProductResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPrecio">
+<xs:sequence>
+<xs:element name="code" type="xs:int"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="getPrecioResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
