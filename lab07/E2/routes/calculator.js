@@ -19,7 +19,7 @@ router.post('/add', (req = Request, res = Response) => {
     })
 });
 
-router.post('/substract', (req = Request, res = Response) => {
+router.post('/subtract', (req = Request, res = Response) => {
     let { num1, num2 } = req.body;
 
     num1 = +num1;
