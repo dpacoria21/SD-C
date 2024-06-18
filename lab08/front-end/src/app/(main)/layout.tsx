@@ -5,7 +5,9 @@ export default function MainLayout({children}: Readonly<{children: React.ReactNo
     return(
         <main className='min-h-screen bg-slate-300'>
             <Navbar />
-            {children}
+            <div className='p-5'>
+                {children}
+            </div>
         </main>
     );
 }

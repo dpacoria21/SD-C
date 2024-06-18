@@ -23,15 +23,19 @@ const routes: Route[] = [
         label: 'Proyectos'
     },
     {
-        path: '/busquedas',
-        label: 'Búsquedas'
+        path: '/ingenieros-proyecto',
+        label: 'Busqueda (Ings -> Proyecto) '
+    },
+    {
+        path: '/proyectos-departamento',
+        label: 'Busqueda (Projs -> Departamento)'
     }
 ];
 
 export default function Navbar() {
     return (
-        <nav>
-            <ul className="list-none flex gap-4">
+        <nav className=''>
+            <ul className="ml-4 list-none flex gap-4">
                 {
                     routes.map((route, i) => (
                         <NavbarItem key={route.path+i} {...route}/>
