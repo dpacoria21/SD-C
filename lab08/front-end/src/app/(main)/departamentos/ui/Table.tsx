@@ -17,10 +17,10 @@ export default async function Table() {
                             Nombre
                         </th>
                         <th scope="col" className="px-6 py-3">
-                            Fax
+                            Teléfono
                         </th>
                         <th scope="col" className="px-6 py-3">
-                            Teléfono
+                            Fax
                         </th>
 
                         <th scope="col" className="px-6 py-3">
