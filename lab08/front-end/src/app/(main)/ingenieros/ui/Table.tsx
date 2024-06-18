@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 import { getIngenieros } from '@/utils/ingenieros/getIngenieros';
 import TableItem from './TableItem';
 
