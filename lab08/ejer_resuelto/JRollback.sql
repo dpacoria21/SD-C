@@ -1,0 +1,19 @@
+CREATE DATABASE IF NOT EXISTS BASE_DE_DATOS_2;
+USE BASE_DE_DATOS_2;
+
+CREATE TABLE clientes (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(50),
+  correo VARCHAR(50)
+) ENGINE=InnoDB;
+
+CREATE TABLE pedidos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  cliente_id INT,
+  producto VARCHAR(50),
+  cantidad INT,
+  FOREIGN KEY (cliente_id) REFERENCES clientes(id)
+) ENGINE=InnoDB;
+
+
+
