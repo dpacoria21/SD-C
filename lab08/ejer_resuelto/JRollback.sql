@@ -1,19 +1,21 @@
-CREATE DATABASE IF NOT EXISTS BASE_DE_DATOS_2;
-USE BASE_DE_DATOS_2;
+CREATE DATABASE IF NOT EXISTS BASE_DE_DATOS;
+USE BASE_DE_DATOS;
 
-CREATE TABLE clientes (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  nombre VARCHAR(50),
-  correo VARCHAR(50)
-) ENGINE=InnoDB;
+-- 
+-- Estructura de tabla para la tabla 'mitabla'
+-- 
 
-CREATE TABLE pedidos (
-  id INT AUTO_INCREMENT PRIMARY KEY,
-  cliente_id INT,
-  producto VARCHAR(50),
-  cantidad INT,
-  FOREIGN KEY (cliente_id) REFERENCES clientes(id)
-) ENGINE=InnoDB;
+CREATE TABLE mitabla (
+  DNI varchar(12) default NULL,
+  correo varchar(32) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+-- 
+-- Estructura de tabla para la tabla 'miotratabla'
+-- 
 
-
+CREATE TABLE miotratabla (
+  nombre varchar(20) default NULL,
+  apellido varchar(20) default NULL,
+  edad int(20) default NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
